@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h2>Upload a Text File</h2>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".txt" required><br><br>
+    <textarea name="message" placeholder="Enter a message about this file..." rows="3" cols="40"></textarea><br><br>
+
+    <label for="genre">Select a genre:</label>
+    <select name="genre" required>
+        <option value="Analysis">Analysis</option>
+        <option value="Development">Development</option>
+        <option value="Programming">Programming</option>
+        <option value="Other">Other</option>
+    </select><br><br>
+
+    <button type="submit">Upload</button>
+</form>
+
+<h2>Search & Filter</h2>
+<form method="GET" action="/">
+    <input type="text" name="search" placeholder="Search by filename or message..." value="{{ request.args.get('search','') }}">
+    <select name="genre_filter">
+        <option value="">All Genres</option>
+        {% for g in genres %}
+            <option value="{{ g }}" {% if request.args.get('genre_filter') == g %}selected{% endif %}>{{ g }}</option>
+        {% endfor %}
+    </select>
+    <select name="user_filter">
+        <option value="">All Users</option>
+        {% for u in users %}
+            <option value="{{ u }}" {% if request.args.get('user_filter') == u %}selected{% endif %}>{{ u }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Filter</button>
+    <a href="{{ url_for('index') }}">Clear</a>
+</form>
+
+<h2>Upload History</h2>
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Filename</th>
+        <th>Uploaded By</th>
+        <th>Upload Time</th>
+        <th>Message</th>
+        <th>Genre</th>
+        <th>Action</th>
+    </tr>
+    {% for f, u, t, m, g in uploads %}
+    <tr>
+        <td>{{ f }}</td>
+        <td>{{ u }}</td>
+        <td>{{ t }}</td>
+        <td>{{ m }}</td>
+        <td>{{ g }}</td>
+        <td><a href="{{ url_for('view_file', filename=f) }}">View</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Viewing File: {{ filename }}</h2>
+<p><b>Uploaded by:</b> {{ username }}<br>
+<b>Upload time:</b> {{ upload_time }}<br>
+<b>Message:</b> {{ message }}<br>
+<b>Genre:</b> {{ genre }}</p>
+
+<pre style="border:1px solid #ccc; padding:10px; background:#f9f9f9;">{{ content }}</pre>
+<a href="{{ url_for('index') }}">⬅ Back</a>
+
+{% endblock %}

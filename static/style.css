@@ -1,0 +1,86 @@
+/* Reset some defaults */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background: #4a90e2;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+input[type="file"],
+input[type="text"],
+textarea,
+select {
+    padding: 8px;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 8px 15px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #357ab7;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background: #f1f1f1;
+}
+
+.flash {
+    background: #ffdddd;
+    border: 1px solid #ff8888;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+pre {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    white-space: pre-wrap; /* allow wrapping */
+}
